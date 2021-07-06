@@ -7,24 +7,24 @@ from pedestrians.Demand import Demand
 path = os.environ['TS_SIMULATION']
 
 
-def generate(traffic_type, city):
-    generate_pedestrians_traffic(city)
+def generate():
+    generate_pedestrians_traffic()
 
 
-def generate_pedestrians_traffic(city):
+def generate_pedestrians_traffic():
     random.seed(42)
     path = os.environ['TS_SIMULATION']
-    filepath = path + "/input/" + city + "/pedestrians.trips.xml"
+    filepath = path + "/input/map/pedestrians.trips.xml"
     mode = 'a' if os.path.exists(filepath) else 'w'
     with open(filepath, mode) as routes:
         print_header(routes)
-        print_pedestrians_trips(routes, 3600, read_demands(city))
+        print_pedestrians_trips(routes, 3600, read_demands())
         print_footer(routes)
 
 
-def read_demands(city):
+def read_demands():
     demands = []
-    demand_path = path + '/pedestrians/input/' + city + '/pedestrians.csv'
+    demand_path = path + '/pedestrians/input/map/pedestrians.csv'
     with open(demand_path, 'r') as file:
         reader = csv.reader(file, delimiter=';')
         counter = 0

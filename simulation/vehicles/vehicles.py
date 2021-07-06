@@ -3,28 +3,26 @@ import csv
 import random
 
 from vehicles.Demand import Demand
-from traffic_types import PEAK
 
 path = os.environ['TS_SIMULATION']
 
 
-def generate(traffic_type, city):
-    if traffic_type == PEAK:
-        generate_peak_hour_traffic(city)
+def generate(traffic_type):
+    generate_traffic(traffic_type)
 
 
-def generate_peak_hour_traffic(city):
+def generate_traffic(traffic_type):
     random.seed(42)
     path = os.environ['TS_SIMULATION']
-    filepath = path + "/input/" + city + "/vehicle-" + PEAK + ".trips.xml"
+    filepath = path + "/input/map/vehicle-" + traffic_type + ".trips.xml"
     mode = 'a' if os.path.exists(filepath) else 'w'
     with open(filepath, mode) as routes:
         print_header(routes)
-        print_peak_trips(routes, 3600, read_demands(city))
+        print_trips(routes, 3600, read_demands(traffic_type))
         print_footer(routes)
 
 
-def print_peak_trips(routes, number_of_steps, demands):
+def print_trips(routes, number_of_steps, demands):
     veh_number = 0
     for step in range(number_of_steps):
         for d in demands:
@@ -38,8 +36,8 @@ def print_peak_trips(routes, number_of_steps, demands):
                 veh_number += 1
 
 
-def read_demands(city):
-    demand_path = path + '/vehicles/input/' + city + '/vehicles.csv'
+def read_demands(traffic_type):
+    demand_path = path + '/vehicles/input/map/vehicles-' + traffic_type + '.csv'
     demands = []
     with open(demand_path, 'r') as file:
         reader = csv.reader(file, delimiter=';')
@@ -62,8 +60,3 @@ def print_header(routes):
 
 def print_footer(routes):
     print("</routes>", file=routes)
-
-
-if __name__ == '__main__':
-    generate(PEAK, 'tallinn')
-    generate(PEAK, 'narva')

@@ -1,0 +1,8 @@
+route_id;origin;destination;demand_per_sec
+rocca-airport;317217122#0;177513127#0;0.000556
+airport-rocca;-183577;317209213;0.000833
+airport-tty;-183577;-182723;0.001389
+tty-centre;-182707;-182653;0.003889
+tty-airport;-182707;177513127#0;0.001111
+centre-tty;-182559;-182723;0.005
+centre-rocca;-182559;317209213;0.000278
