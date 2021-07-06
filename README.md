@@ -12,9 +12,13 @@ export TS_SIMULATION = ${clone_path}/simulation
 
 
 ## Commands
-Run PETSSA simulation with GUI: 
+Run PETSSA simulation with sample configuration for visual representation: 
 ```
 sh run_petssa.sh
+```
+Run PETSSA test case simulation: 
+```
+sh run_simulation.sh
 ```
 Run current Tammsaare-Sõpruse intersection traffic signal logic simulation with GUI: 
 ```
