@@ -1,3 +1,3 @@
 #!/bin/sh
-
+#TODO: run both peak and offpeak simulations
 python $TS_SIMULATION/simulation.py --type peak --max-green 25 --mg-diff 6 --priority 

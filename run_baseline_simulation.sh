@@ -1,5 +1,5 @@
 #!/bin/sh
-
+#TODO: run both peak and offpeak simulations
 sumo -c $TS_SIMULATION/input/map/peak.sumo.cfg --tripinfo-output $TS_SIMULATION/output/map/baseline/trip_info.xml --device.emissions.probability 1.0 --duration-log.statistics --log $TS_SIMULATION/output/map/baseline/statistics.txt
 
 python $SUMO_HOME/tools/xml/xml2csv.py "${TS_SIMULATION}/output/map/baseline/trip_info.xml" --output "${TS_SIMULATION}/output/map/baseline/result.csv"
