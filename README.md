@@ -2,6 +2,8 @@
 Priority-driven Enhanced Traffic Signal Scheduling Algorithm in Tammsaare-Sõpruse
 
 ## Set up
+Install Python
+
 Add SUMO_HOME to env variable
 https://sumo.dlr.de/docs/Basics/Basic_Computer_Skills.html#sumo_home
 
@@ -20,7 +22,7 @@ Run PETSSA test case simulation:
 ```
 sh run_simulation.sh
 ```
-Run current Tammsaare-Sõpruse intersection traffic signal logic simulation with GUI: 
+Run current Tammsaare-Sõpruse intersection traffic signal logic simulation: 
 ```
-sh run_baseline.sh
+sh run_baseline_simulation.sh
 ```
